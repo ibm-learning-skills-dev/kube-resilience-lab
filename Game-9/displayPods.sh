@@ -1,0 +1,1 @@
+kubectl get pods -w -o wide

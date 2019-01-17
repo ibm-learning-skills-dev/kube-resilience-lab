@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: show-cache
+spec:
+  template:
+    metadata:
+      name: show-cache
+    spec:
+      containers:
+      - name: show-cache-container
+        image: patrocinio/ping_pong_show_cache
+        env:
+        - name:  QUEUE 
+          value: "ping-pong-rabbitmq-ha.ping-pong.svc.cluster.local"
+      restartPolicy: Never

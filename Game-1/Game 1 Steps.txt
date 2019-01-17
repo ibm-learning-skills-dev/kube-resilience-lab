@@ -1,0 +1,7 @@
+1. configureHelmCLI.sh <ICP-master-IP> 
+2. createNamespace.sh ping-pong
+3. switchNamespace.sh ping-pong
+4. createRoleBinding.sh
+5. deployGame1.sh
+6. (Separate window) stern ping
+7. deployThrowBall.sh

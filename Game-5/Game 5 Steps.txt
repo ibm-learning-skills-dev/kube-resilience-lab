@@ -1,0 +1,5 @@
+1. deployGame5.sh
+2. stern ping
+3. deployThrowBall.sh
+4. destroyPingLoop.sh
+

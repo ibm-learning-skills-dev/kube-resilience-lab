@@ -1,0 +1,6 @@
+1. destroyPingLoop.sh
+
+After ball is lost
+
+2. deployThrowBall.sh
+

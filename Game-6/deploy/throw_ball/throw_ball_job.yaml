@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: throw-ball
+spec:
+  template:
+    metadata:
+      name: throw-ball
+    spec:
+      containers:
+      - name: throw-ball-container
+        image: patrocinio/ping_pong_throw_ball
+        env:
+        - name:  QUEUE 
+          value: "ping-pong-rabbitmq-ha.ping-pong.svc.cluster.local"
+      restartPolicy: Never
