@@ -5,4 +5,4 @@ kubectl create rolebinding -n $NAMESPACE pp-rolebinding --clusterrole=privileged
 
 kubectl delete psp retrict-root
 
-kubectl create -f permit_root.yaml 
+kubectl create -f permit-root.yaml 
