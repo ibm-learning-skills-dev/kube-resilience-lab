@@ -34,6 +34,8 @@ spec:
         - name: copy-rabbitmq-config
           image: busybox
           command: ['sh', '-c', 'cp /configmap/* /etc/rabbitmq; rm -f /var/lib/rabbitmq/.erlang.cookie']
+          securityContext:
+            runAsUser: 1000
           volumeMounts:
             - name: configmap
               mountPath: /configmap
