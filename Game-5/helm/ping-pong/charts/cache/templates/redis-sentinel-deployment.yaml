@@ -26,8 +26,8 @@ spec:
       containers:
       - name: sentinel
         image: {{ .Values.redis_image }}
-        securityContext:
-            runAsUser: 100
+#        securityContext:
+#            runAsUser: 100
         resources:
 {{ toYaml .Values.resources.sentinel | indent 10 }}
         env:
