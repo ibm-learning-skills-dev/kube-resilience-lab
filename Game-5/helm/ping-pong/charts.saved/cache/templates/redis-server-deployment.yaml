@@ -30,6 +30,8 @@ spec:
       containers:
       - name: redis
         image: {{ .Values.redis_image }}
+#        securityContext:
+#          runAsUser: 100
         resources:
 {{ toYaml .Values.resources.server | indent 10 }}
         env:
@@ -51,4 +53,3 @@ spec:
             name: data
       volumes:
       - name: data
-
