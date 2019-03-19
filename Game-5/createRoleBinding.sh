@@ -1,8 +1,8 @@
 NAMESPACE=ping-pong
 
-kubectl delete rolebinding pp-rolebinding
+kubectl delete rolebinding redis-rolebinding
 
-kubectl create rolebinding -n $NAMESPACE pp-rolebinding --clusterrole=ibm-privileged-clusterrole \
+kubectl create rolebinding -n $NAMESPACE redis-rolebinding --clusterrole=ibm-privileged-clusterrole \
 	--serviceaccount=$NAMESPACE:ping-pong-redis-ha
 
 #kubectl delete psp retrict-root
