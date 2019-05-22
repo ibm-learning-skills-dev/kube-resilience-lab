@@ -6,7 +6,7 @@ import time
 import redis
 import socket
 
-CACHE='ping-pong-redis-ha-master-svc.ping-pong.svc.cluster.local'
+CACHE='cache-redis-master.ping-pong.svc.cluster.local'
 #CACHE='localhost'
 
 
@@ -14,7 +14,7 @@ queue_name = os.environ['QUEUE_NAME']
 other_queue = os.environ['OTHER_QUEUE_NAME']
 
 welcome_message = "==> I'm " +queue_name + " in v4/Game-7"
- 
+
 red = 0
 
 def getPodName ():
@@ -31,7 +31,7 @@ def throw_ball(ball):
 	channel.basic_publish(exchange='',
     	                  routing_key=other_queue,
         	              body=ball)
-	
+
 def transformBall(body):
 	ball = body.decode('utf-8')
 	name, count = ball.split("-", 1)
@@ -95,4 +95,3 @@ checkCache()
 
 # Init queue
 pp_queue.consume(queue_name, callback)
-

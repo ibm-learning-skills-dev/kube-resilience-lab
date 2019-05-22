@@ -5,7 +5,7 @@ import os
 import time
 import redis
 
-CACHE='ping-pong-redis-ha-master-svc.ping-pong.svc.cluster.local'
+CACHE='cache-redis-master.ping-pong.svc.cluster.local'
 #CACHE='localhost'
 
 
@@ -27,7 +27,7 @@ def throw_ball(ball):
 	channel.basic_publish(exchange='',
     	                  routing_key=other_queue,
         	              body=ball)
-	
+
 def transformBall(body):
 	ball = body.decode('utf-8')
 	name, count = ball.split("-", 1)
@@ -49,7 +49,7 @@ def checkCache():
 
 		throw_ball(ball)
 
-   
+
 
 def callback(ch, method, properties, body):
 	print ("Received a message %s" % body)
@@ -95,4 +95,3 @@ checkCache()
 
 # Init queue
 pp_queue.consume(queue_name, callback)
-

@@ -25,14 +25,10 @@ def consume(queue_name, callback):
 	channel.queue_declare(queue=queue_name)
 
 # Set ack mode
-	channel.basic_consume(callback,
-    		              queue=queue_name,
-    		              no_ack=False)
+	channel.basic_consume(queue_name,
+        		          callback,
+					      False)
 
 	print(" [*] Waiting for messages in queue " + queue_name + ". To exit press CTRL+C")
 	sys.stdout.flush ()
 	channel.start_consuming()
-
-
-
-
