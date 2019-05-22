@@ -1,2 +1,1 @@
-kubectl scale --replicas 2 deployment/ping
-kubectl scale --replicas 2 deployment/pong
+kubectl scale --replicas 2 deployment/ping-player

@@ -5,12 +5,12 @@ import os
 import time
 
 
-queue_name = os.environ['QUEUE_NAME']    
+queue_name = os.environ['QUEUE_NAME']
 other_queue = os.environ['OTHER_QUEUE_NAME']
 
 key = queue_name
 
-welcome_message = "==> I'm " +queue_name + " in v2/Game-1"
+welcome_message = "==> I'm " +queue_name + " in v4/Game-1 queue name: " + queue_name + " other queue name: " + other_queue
 
 def throwBall(ball):
 	message.send ("==> Throwing ball %s" % ball)
@@ -36,13 +36,11 @@ def callback(ch, method, properties, body):
 	# Throw the ball
 	ball = transformBall(body)
 	throwBall(ball)
-  
+
 print(welcome_message)
 
 # Init message
 message.init ()
-
-message.send (welcome_message)
 
 # Init other queue
 connection = pp_queue.connect()
@@ -51,5 +49,3 @@ channel.queue_declare(queue=other_queue)
 
 # Init queue
 pp_queue.consume(queue_name, callback)
-
-

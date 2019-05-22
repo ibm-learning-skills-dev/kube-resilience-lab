@@ -10,9 +10,7 @@ spec:
       containers:
       - name: throw-ball-container
         image: patrocinio/ping_pong_throw_ball
-        securityContext:
-          runAsUser: 1000
         env:
-        - name:  QUEUE
+        - name:  QUEUE 
           value: "ping-pong-rabbitmq-ha.ping-pong.svc.cluster.local"
       restartPolicy: Never

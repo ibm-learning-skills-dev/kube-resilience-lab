@@ -1,3 +1,2 @@
 echo Deleting ping  Pod
-kubectl delete pod -l app=ping
-
+kubectl delete pod -l app=ping-player

@@ -34,8 +34,6 @@ spec:
         - name: copy-rabbitmq-config
           image: busybox
           command: ['sh', '-c', 'cp /configmap/* /etc/rabbitmq; rm -f /var/lib/rabbitmq/.erlang.cookie']
-          securityContext:
-            runAsUser: 1000
           volumeMounts:
             - name: configmap
               mountPath: /configmap
@@ -47,8 +45,6 @@ spec:
         - name: {{ .Chart.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          securityContext:
-            runAsUser: 1000
           ports:
             - name: epmd
               protocol: TCP

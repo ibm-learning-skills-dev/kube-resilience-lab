@@ -1,4 +1,4 @@
-NAME=ping-pong
+NAME=ping-player
 NAMESPACE=ping-pong
 
 HELM_OPTIONS=--tls
@@ -8,5 +8,4 @@ echo Deleting $NAME
 helm delete $NAME --purge $HELM_OPTIONS
 
 echo Deploying $NAME
-helm install --name $NAME ./helm/ping-pong --namespace $NAMESPACE $HELM_OPTIONS
-
+helm install --name $NAME ./helm/ping-player --namespace $NAMESPACE $HELM_OPTIONS
